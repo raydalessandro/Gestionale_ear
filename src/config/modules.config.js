@@ -53,6 +53,18 @@ export const MODULES_REGISTRY = {
     category: 'insights',
     color: '#F59E0B',
     gradient: 'linear-gradient(135deg, #f59e0b 0%, #d97706 100%)'
+  },
+  cassa: {
+  id: 'cassa',
+  name: 'Cassa & Vendite',
+  icon: '💰',
+  description: 'Punto vendita accessori studio',
+  route: '/cassa',
+  enabled: true,
+  dependencies: [],
+  category: 'finance',
+  color: '#EC4899',
+  gradient: 'linear-gradient(135deg, #ec4899 0%, #f59e0b 100%)'
   }
 };
 
