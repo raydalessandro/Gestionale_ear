@@ -135,16 +135,19 @@ const AnalyticsDashboard = () => {
   const [artists, setArtists] = useState([]);
   const [transactions, setTransactions] = useState([]);
   const [bookings, setBookings] = useState([]);
+  const [cassaSales, setCassaSales] = useState([]);
   const [dateRange, setDateRange] = useState('month'); // week, month, quarter, year, custom
   const [customStartDate, setCustomStartDate] = useState('');
   const [customEndDate, setCustomEndDate] = useState('');
   const [compareMode, setCompareMode] = useState(false);
+  
 
   // 🔄 LOAD DATA
   useEffect(() => {
     const loadedArtists = JSON.parse(localStorage.getItem(CONFIG.storageKeys.artists) || '[]');
     const loadedTransactions = JSON.parse(localStorage.getItem(CONFIG.storageKeys.transactions) || '[]');
     const loadedBookings = JSON.parse(localStorage.getItem(CONFIG.storageKeys.bookings) || '[]');
+    const loadedCassaSales = JSON.parse(localStorage.getItem('studio_cassa_sales') || '[]');
     setArtists(loadedArtists);
     setTransactions(loadedTransactions);
     setBookings(loadedBookings);
