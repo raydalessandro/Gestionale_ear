@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { getActiveModules } from '../config/modules.config';
 
 // 🎵 CONFIGURAZIONE (in produzione importata da config)
 // import { STUDIO_CONFIG } from '../config/studio.config';
