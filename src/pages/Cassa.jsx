@@ -206,20 +206,25 @@ const Cassa = () => {
     const { subtotale, scontoTotale, totale } = calcolaTotali();
 
     const vendita = {
-      id: Date.now().toString(),
-      numero: generateNumeroVendita(),
-      data: new Date().toISOString(),
-      cliente: clienteSelezionato,
-      items: carrello,
-      subtotale,
-      sconto: scontoTotale,
-      totale,
-      pagamento: {
-        metodo: metodoPagamento,
-        importo: totale
-      },
-      operatore: 'Admin' // TODO: sostituire con utente loggato
-    };
+  id: Date.now().toString(),
+  numero: generateNumeroVendita(),
+  data: new Date().toISOString(),
+  cliente: clienteSelezionato ? {
+    id: clienteSelezionato.id,
+    nome: clienteSelezionato.nome,
+    email: clienteSelezionato.email || '',
+    telefono: clienteSelezionato.telefono || ''
+  } : null,
+  items: carrello,
+  subtotale,
+  sconto: scontoTotale,
+  totale,
+  pagamento: {
+    metodo: metodoPagamento,
+    importo: totale
+  },
+  operatore: 'Admin' // TODO: sostituire con utente loggato
+};
 
     const nuoveVendite = [vendita, ...vendite];
     setVendite(nuoveVendite);
