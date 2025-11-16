@@ -166,6 +166,7 @@ const StudioLauncher = () => {
   const [transactions, setTransactions] = useState([]);
   const [bookings, setBookings] = useState([]);
   const [currentTime, setCurrentTime] = useState(new Date());
+  const [activeModules, setActiveModules] = useState([]);
 
   // 🔄 LOAD DATA
   useEffect(() => {
