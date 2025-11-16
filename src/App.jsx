@@ -4,6 +4,7 @@ import TransactionManager from './pages/TransactionManager';
 import ClientHub from './pages/ClientHub';
 import BookingSystem from './pages/BookingSystem';
 import Analytics from './pages/Analytics';
+import Cassa from './pages/Cassa';  // ← AGGIUNGI QUESTO
 import AdminPanel from './pages/Admin/AdminPanel';
 import { isModuleEnabled } from './config/modules.config';
 
@@ -32,6 +33,11 @@ function App() {
         
         {isModuleEnabled('analytics') && (
           <Route path="/analytics" element={<Analytics />} />
+        )}
+        
+        {/* ← AGGIUNGI QUESTA ROUTE */}
+        {isModuleEnabled('cassa') && (
+          <Route path="/cassa" element={<Cassa />} />
         )}
         
         {/* Fallback - redirect a home */}
