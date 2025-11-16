@@ -227,6 +227,16 @@ const AnalyticsDashboard = () => {
       return sum + paid;
     }, 0);
 
+    // 🛒 CASSA Revenue (filtra per data)
+const { startDate, endDate } = getDateRange();
+const filteredCassaSales = cassaSales.filter(sale => {
+  const saleDate = new Date(sale.data);
+  return saleDate >= startDate && saleDate <= endDate;
+});
+
+const cassaRevenue = filteredCassaSales.reduce((sum, sale) => sum + sale.totale, 0);
+const cassaTransactionsCount = filteredCassaSales.length;
+
     const pendingRevenue = filteredTransactions.reduce((sum, t) => {
       const total = t.total;
       const paid = t.payments?.reduce((s, p) => s + p.amount, 0) || 0;
@@ -422,7 +432,9 @@ const AnalyticsDashboard = () => {
       paymentMethodData,
       avgRevenuePerSession,
       avgHoursPerSession,
-      growthStats
+      growthStats,
+      cassaRevenue,
+      cassaTransactionsCount
     };
   };
 
