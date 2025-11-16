@@ -7,7 +7,7 @@ import {
   getAdminLogs,
   checkDependencies,
   findDependentModules
-} from '../config/modules.config';
+} from '../../config/modules.config';
 
 // 🎨 STILI
 const styles = `
