@@ -652,6 +652,30 @@ const cassaTransactionsCount = filteredCassaSales.length;
               {analytics.bookedHours.toFixed(0)}h prenotate
             </div>
           </div>
+
+          <div className="stat-card">
+  <div style={{ fontSize: '0.85rem', color: '#666', marginBottom: '8px', fontWeight: 600 }}>
+    VENDITE CASSA
+  </div>
+  <div style={{ fontSize: '2.2rem', fontWeight: 700, color: '#EC4899' }}>
+    €{analytics.cassaRevenue.toFixed(0)}
+  </div>
+  <div style={{ fontSize: '0.8rem', color: '#999', marginTop: '8px' }}>
+    {analytics.cassaTransactionsCount} vendite
+  </div>
+</div>
+
+          <div className="stat-card" style={{ background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)', color: 'white' }}>
+  <div style={{ fontSize: '0.85rem', opacity: 0.9, marginBottom: '8px', fontWeight: 600 }}>
+    INCASSO TOTALE
+  </div>
+  <div style={{ fontSize: '2.2rem', fontWeight: 700 }}>
+    €{(analytics.totalRevenue + analytics.cassaRevenue).toFixed(0)}
+  </div>
+  <div style={{ fontSize: '0.8rem', opacity: 0.8, marginTop: '8px' }}>
+    Studio + Cassa
+  </div>
+</div>
         </div>
 
         {/* 📈 CHARTS ROW 1 */}
