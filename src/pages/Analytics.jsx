@@ -151,6 +151,7 @@ const AnalyticsDashboard = () => {
     setArtists(loadedArtists);
     setTransactions(loadedTransactions);
     setBookings(loadedBookings);
+    setCassaSales(loadedCassaSales);
   }, []);
 
   // 📅 DATE HELPERS
