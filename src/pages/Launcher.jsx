@@ -337,7 +337,43 @@ const StudioLauncher = () => {
         { label: 'Sessioni', value: stats.totalTransactions }
       ],
       route: '/analytics'
-    }
+    },
+    {/* 💰 CASSA */}
+<div
+  onClick={() => navigate('/cassa')}
+  className="app-card"
+  style={{ position: 'relative', zIndex: 1 }}
+>
+  <div style={{ fontSize: '4rem', marginBottom: '20px' }}>💰</div>
+  <h3 style={{ 
+    fontSize: '1.5rem', 
+    fontWeight: 700, 
+    marginBottom: '12px',
+    position: 'relative',
+    zIndex: 2
+  }}>
+    Cassa & Vendite
+  </h3>
+  <p style={{ 
+    opacity: 0.8, 
+    lineHeight: 1.6,
+    position: 'relative',
+    zIndex: 2
+  }}>
+    Punto vendita accessori studio. Gestisci vendite rapide, carrello, pagamenti e storico completo.
+  </p>
+  <div style={{
+    marginTop: '20px',
+    padding: '12px',
+    background: 'rgba(255, 255, 255, 0.05)',
+    borderRadius: '8px',
+    fontSize: '0.85rem',
+    position: 'relative',
+    zIndex: 2
+  }}>
+    <strong>Features:</strong> POS completo, Multi-pagamento, Analytics vendite
+  </div>
+</div>
   ];
 
   return (
