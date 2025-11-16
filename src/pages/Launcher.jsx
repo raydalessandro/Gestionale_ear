@@ -168,22 +168,26 @@ const StudioLauncher = () => {
   const [currentTime, setCurrentTime] = useState(new Date());
   const [activeModules, setActiveModules] = useState([]);
 
-  // 🔄 LOAD DATA
-  useEffect(() => {
-    const loadData = () => {
-      const loadedArtists = JSON.parse(localStorage.getItem(CONFIG.storageKeys.artists) || '[]');
-      const loadedTransactions = JSON.parse(localStorage.getItem(CONFIG.storageKeys.transactions) || '[]');
-      const loadedBookings = JSON.parse(localStorage.getItem(CONFIG.storageKeys.bookings) || '[]');
-      setArtists(loadedArtists);
-      setTransactions(loadedTransactions);
-      setBookings(loadedBookings);
-    };
+// 🔄 LOAD DATA
+useEffect(() => {
+  const loadData = () => {
+    // Carica moduli attivi
+    setActiveModules(getActiveModules());
+    
+    // Carica dati esistenti
+    const loadedArtists = JSON.parse(localStorage.getItem(CONFIG.storageKeys.artists) || '[]');
+    const loadedTransactions = JSON.parse(localStorage.getItem(CONFIG.storageKeys.transactions) || '[]');
+    const loadedBookings = JSON.parse(localStorage.getItem(CONFIG.storageKeys.bookings) || '[]');
+    setArtists(loadedArtists);
+    setTransactions(loadedTransactions);
+    setBookings(loadedBookings);
+  };
 
-    loadData();
-    const interval = setInterval(loadData, 5000); // Refresh every 5 seconds
+  loadData();
+  const interval = setInterval(loadData, 5000);
 
-    return () => clearInterval(interval);
-  }, []);
+  return () => clearInterval(interval);
+}, []);
 
   // ⏰ UPDATE TIME
   useEffect(() => {
