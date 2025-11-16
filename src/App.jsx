@@ -4,6 +4,7 @@ import TransactionManager from './pages/TransactionManager';
 import ClientHub from './pages/ClientHub';
 import BookingSystem from './pages/BookingSystem';
 import Analytics from './pages/Analytics';
+import Cassa from './pages/Cassa';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/clients" element={<ClientHub />} />
         <Route path="/bookings" element={<BookingSystem />} />
         <Route path="/analytics" element={<Analytics />} />
+        <Route path="/cassa" element={<Cassa />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </BrowserRouter>
