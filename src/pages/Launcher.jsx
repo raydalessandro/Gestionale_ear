@@ -519,9 +519,6 @@ const calculateStats = (moduleId) => {
           </div>
         ))}
       </div>
-    </div>
-  </div>
-))}
 
         
         {/* 📝 RECENT ACTIVITY */}
