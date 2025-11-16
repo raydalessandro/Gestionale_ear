@@ -223,12 +223,11 @@ const AnalyticsDashboard = () => {
 
     // Revenue Analytics
     const totalRevenue = filteredTransactions.reduce((sum, t) => {
-      const paid = t.payments?.reduce((s, p) => s + p.amount, 0) || 0;
-      return sum + paid;
-    }, 0);
+  const paid = t.payments?.reduce((s, p) => s + p.amount, 0) || 0;
+  return sum + paid;
+}, 0);
 
-    // 🛒 CASSA Revenue (filtra per data)
-const { startDate, endDate } = getDateRange();
+// 🛒 CASSA Revenue (filtra per data - usa startDate/endDate già dichiarati)
 const filteredCassaSales = cassaSales.filter(sale => {
   const saleDate = new Date(sale.data);
   return saleDate >= startDate && saleDate <= endDate;
