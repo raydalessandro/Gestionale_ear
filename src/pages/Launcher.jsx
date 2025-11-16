@@ -290,74 +290,43 @@ useEffect(() => {
 
   const recentActivity = getRecentActivity();
 
-  // 📱 APP MODULES
-  const apps = [
-    {
-      id: 'transactions',
-      name: 'Transaction Manager',
-      icon: '💰',
-      description: 'Gestione transazioni e pagamenti',
-      color: '#8B5CF6',
-      gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-      stats: [
+// 📊 CALCOLA STATISTICHE PER MODULO
+const calculateStats = (moduleId) => {
+  switch(moduleId) {
+    case 'transactions':
+      return [
         { label: 'Oggi', value: `€${stats.todayRevenue.toFixed(0)}` },
         { label: 'In Attesa', value: `€${stats.pendingRevenue.toFixed(0)}` }
-      ],
-      route: '/transactions'
-    },
-    {
-      id: 'clients',
-      name: 'Client Hub',
-      icon: '👥',
-      description: 'Gestione completa artisti e clienti',
-      color: '#EC4899',
-      gradient: 'linear-gradient(135deg, #ec4899 0%, #8b5cf6 100%)',
-      stats: [
+      ];
+    
+    case 'clients':
+      return [
         { label: 'Artisti', value: stats.totalArtists },
         { label: 'VIP', value: artists.filter(a => a.vip).length }
-      ],
-      route: '/clients'
-    },
-    {
-      id: 'bookings',
-      name: 'Booking System',
-      icon: '📅',
-      description: 'Calendario prenotazioni e sale',
-      color: '#10B981',
-      gradient: 'linear-gradient(135deg, #10b981 0%, #059669 100%)',
-      stats: [
+      ];
+    
+    case 'bookings':
+      return [
         { label: 'Oggi', value: stats.todayBookings },
         { label: 'Totali', value: stats.totalBookings }
-      ],
-      route: '/bookings'
-    },
-    {
-      id: 'analytics',
-      name: 'Analytics Dashboard',
-      icon: '📊',
-      description: 'Report avanzati e business intelligence',
-      color: '#F59E0B',
-      gradient: 'linear-gradient(135deg, #f59e0b 0%, #d97706 100%)',
-      stats: [
+      ];
+    
+    case 'analytics':
+      return [
         { label: 'Mese', value: `€${stats.monthRevenue.toFixed(0)}` },
         { label: 'Sessioni', value: stats.totalTransactions }
-      ],
-      route: '/analytics'
-    },
-   {
-    id: 'cassa',
-    name: 'Cassa & Vendite',
-    icon: '💰',
-    description: 'Punto vendita accessori studio. Gestisci vendite rapide, carrello, pagamenti e storico completo.',
-    color: '#EC4899',
-    gradient: 'linear-gradient(135deg, #ec4899 0%, #f59e0b 100%)',
-    stats: [
-      { label: 'Oggi', value: '€0' },
-      { label: 'Totale', value: '0' }
-    ],
-    route: '/cassa'
-   }
-  ];
+      ];
+    
+    case 'cassa':
+      return [
+        { label: 'Oggi', value: '€0' },
+        { label: 'Totale', value: '0' }
+      ];
+    
+    default:
+      return [];
+  }
+};
 
   return (
     <div style={{ 
