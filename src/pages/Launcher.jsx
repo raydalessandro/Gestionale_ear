@@ -527,6 +527,7 @@ const calculateStats = (moduleId) => {
         
         {/* 📝 RECENT ACTIVITY */}
         <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: '30px', marginBottom: '50px' }}>
+          <div>
             <h2 style={{ 
               fontSize: '1.8rem',
               marginBottom: '20px',
