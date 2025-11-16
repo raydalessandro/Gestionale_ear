@@ -475,53 +475,53 @@ const calculateStats = (moduleId) => {
           gap: '25px',
           marginBottom: '50px'
         }}>
-          {apps.map(app => (
-            <div 
-              key={app.id}
-              className="app-card"
-              onClick={() => navigate(app.route)}
-            >
-              <div style={{ position: 'relative', zIndex: 1 }}>
-                <div style={{ fontSize: '3rem', marginBottom: '15px' }}>{app.icon}</div>
-                <h3 style={{ 
-                  fontSize: '1.5rem',
-                  marginBottom: '10px',
-                  fontWeight: 700
-                }}>
-                  {app.name}
-                </h3>
-                <p style={{ 
-                  fontSize: '0.95rem',
-                  opacity: 0.8,
-                  marginBottom: '20px',
-                  lineHeight: 1.6
-                }}>
-                  {app.description}
-                </p>
+          
+        {activeModules.map(module => (
+  <div 
+    key={module.id}
+    className="app-card"
+    onClick={() => navigate(module.route)}
+  >
+    <div style={{ position: 'relative', zIndex: 1 }}>
+      <div style={{ fontSize: '3rem', marginBottom: '15px' }}>{module.icon}</div>
+      <h3 style={{ 
+        fontSize: '1.5rem',
+        marginBottom: '10px',
+        fontWeight: 700
+      }}>
+        {module.name}
+      </h3>
+      <p style={{ 
+        fontSize: '0.95rem',
+        opacity: 0.8,
+        marginBottom: '20px',
+        lineHeight: 1.6
+      }}>
+        {module.description}
+      </p>
 
-                <div style={{ 
-                  display: 'grid',
-                  gridTemplateColumns: '1fr 1fr',
-                  gap: '15px',
-                  marginTop: '20px',
-                  paddingTop: '20px',
-                  borderTop: '1px solid rgba(255, 255, 255, 0.1)'
-                }}>
-                  {app.stats.map((stat, idx) => (
-                    <div key={idx}>
-                      <div style={{ fontSize: '0.8rem', opacity: 0.7, marginBottom: '5px' }}>
-                        {stat.label}
-                      </div>
-                      <div style={{ fontSize: '1.5rem', fontWeight: 700 }}>
-                        {stat.value}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
+      <div style={{ 
+        display: 'grid',
+        gridTemplateColumns: '1fr 1fr',
+        gap: '15px',
+        marginTop: '20px',
+        paddingTop: '20px',
+        borderTop: '1px solid rgba(255, 255, 255, 0.1)'
+      }}>
+        {calculateStats(module.id).map((stat, idx) => (
+          <div key={idx}>
+            <div style={{ fontSize: '0.8rem', opacity: 0.7, marginBottom: '5px' }}>
+              {stat.label}
             </div>
-          ))}
-        </div>
+            <div style={{ fontSize: '1.5rem', fontWeight: 700 }}>
+              {stat.value}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+))}
 
         {/* 📝 RECENT ACTIVITY */}
         <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: '30px', marginBottom: '50px' }}>
